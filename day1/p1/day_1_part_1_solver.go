@@ -1,7 +1,6 @@
 package d1p1
 
 import (
-	"advent-of-code-2025/utils"
 	"fmt"
 	"math"
 	"sort"
@@ -9,24 +8,14 @@ import (
 	"strings"
 )
 
-type D1P1 struct {
-	lines []string
-}
+type Day1Part1Solver struct{}
 
-func (solver *D1P1) Solve() (string, error) {
-
-	lines, err := utils.ReadLines()
-	if err != nil {
-		fmt.Println("Error:", err)
-		return "", err
-	}
-	solver.lines = lines
+func (solver *Day1Part1Solver) Solve(lines []string) (string, error) {
 
 	left := []int{}
 	right := []int{}
 
 	for _, line := range lines {
-		// split each line and convert to int
 		leftVal, err := strconv.Atoi(strings.Split(line, "   ")[0])
 		if err != nil {
 			fmt.Println("Error converting to int:", err)

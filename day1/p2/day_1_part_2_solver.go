@@ -1,23 +1,14 @@
 package d1p2
 
 import (
-	"advent-of-code-2025/utils"
 	"fmt"
 	"strconv"
 	"strings"
 )
 
-type D1P2 struct {
-	lines []string
-}
+type Day1Part2Solver struct{}
 
-func (solver *D1P2) Solve() (string, error) {
-	lines, err := utils.ReadLines()
-	if err != nil {
-		fmt.Println("Error:", err)
-		return "", err
-	}
-	solver.lines = lines
+func (solver *Day1Part2Solver) Solve(lines []string) (string, error) {
 
 	left := []int{}
 	right := make(map[int]int)
