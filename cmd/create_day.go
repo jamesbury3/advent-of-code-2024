@@ -114,7 +114,7 @@ func TestDay%sPart%sSolver_Solve(t *testing.T) {
     }{
         {
             name: "Solve Problem",
-            want: "",
+            want: "PLACEHOLDER",
             fields: fields{
                 daySolverDelegate: &Day%sPart%sSolver{},
             },

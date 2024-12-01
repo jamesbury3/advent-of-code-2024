@@ -20,5 +20,12 @@ func (ds *DaySolver) CalculateAnswer() (string, error) {
 		return "", err
 	}
 
-	return ds.DaySolverDelegate.Solve(lines)
+	answer, err := ds.DaySolverDelegate.Solve(lines)
+	if err != nil {
+		fmt.Println("Error calculating answer:", err)
+		return "", err
+	}
+
+	fmt.Println("Answer:", answer)
+	return answer, nil
 }
