@@ -3,7 +3,7 @@ package d1p1
 import (
 	"fmt"
 	"math"
-	"sort"
+	"slices"
 	"strconv"
 	"strings"
 )
@@ -32,8 +32,8 @@ func (solver *Day1Part1Solver) Solve(lines []string) (string, error) {
 		right = append(right, rightVal)
 	}
 
-	sort.Ints(left)
-	sort.Ints(right)
+	slices.Sort(left)
+	slices.Sort(right)
 
 	sum := 0
 
