@@ -16,12 +16,14 @@ func (solver *Day1Part1Solver) Solve(lines []string) (string, error) {
 	right := []int{}
 
 	for _, line := range lines {
-		leftVal, err := strconv.Atoi(strings.Split(line, "   ")[0])
+		split_line := strings.Split(line, "   ")
+
+		leftVal, err := strconv.Atoi(split_line[0])
 		if err != nil {
 			fmt.Println("Error converting to int:", err)
 			return "", nil
 		}
-		rightVal, err := strconv.Atoi(strings.Split(line, "   ")[1])
+		rightVal, err := strconv.Atoi(split_line[1])
 		if err != nil {
 			fmt.Println("Error converting to int:", err)
 			return "", nil
