@@ -45,7 +45,6 @@ The `cmd/create_day.go` script can be used to create all the necessary files for
 This will generate the following files:
 ```
 day<day_number>/
-    day<day_number>_utils.go
     p1/
         day_<day_number>_part_1_solver.go
         day_<day_number>_part_1_solver_test.go
