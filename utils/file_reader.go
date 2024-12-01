@@ -8,7 +8,7 @@ import (
 )
 
 // readLines reads a file and returns a slice of its lines.
-func ReadLines() ([]string, error) {
+func readLines() ([]string, error) {
 	absPath, err := os.Getwd()
 	if err != nil {
 		fmt.Println("Error getting current directory:", err)

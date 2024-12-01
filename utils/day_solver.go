@@ -13,7 +13,7 @@ type DaySolver struct {
 }
 
 func (ds *DaySolver) CalculateAnswer() (string, error) {
-	lines, err := ReadLines()
+	lines, err := readLines()
 	if err != nil {
 		fmt.Println("Error reading input lines:", err)
 		return "", err
