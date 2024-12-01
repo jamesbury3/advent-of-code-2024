@@ -1,6 +1,7 @@
-package utils
+package core
 
 import (
+	"advent-of-code-2025/utils"
 	"fmt"
 )
 
@@ -13,7 +14,7 @@ type DaySolver struct {
 }
 
 func (ds *DaySolver) CalculateAnswer() (string, error) {
-	lines, err := readLines()
+	lines, err := utils.ReadLines()
 	if err != nil {
 		fmt.Println("Error reading input lines:", err)
 		return "", err

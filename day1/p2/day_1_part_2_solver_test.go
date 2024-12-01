@@ -1,7 +1,7 @@
 package d1p2
 
 import (
-	"advent-of-code-2025/utils"
+	"advent-of-code-2025/core"
 	"testing"
 )
 
@@ -25,7 +25,7 @@ func TestD1P2_Solve(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			solver := &utils.DaySolver{
+			solver := &core.DaySolver{
 				DaySolverDelegate: tt.fields.daySolverDelegate,
 			}
 			got, err := solver.CalculateAnswer()

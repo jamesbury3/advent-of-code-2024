@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-func readLines() ([]string, error) {
+func ReadLines() ([]string, error) {
 	absPath, err := os.Getwd()
 	if err != nil {
 		fmt.Println("Error getting current directory:", err)

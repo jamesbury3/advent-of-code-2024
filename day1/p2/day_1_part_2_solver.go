@@ -22,12 +22,12 @@ func (solver *Day1Part2Solver) Solve(lines []string) (string, error) {
 			return "", nil
 		}
 		left = append(left, leftVal)
+
 		rightVal, err := strconv.Atoi(split_line[1])
 		if err != nil {
 			fmt.Println("Error converting to int:", err)
 			return "", nil
 		}
-
 		right[rightVal]++
 	}
 
