@@ -7,7 +7,6 @@ import (
 	"path/filepath"
 )
 
-// readLines reads a file and returns a slice of its lines.
 func readLines() ([]string, error) {
 	absPath, err := os.Getwd()
 	if err != nil {
