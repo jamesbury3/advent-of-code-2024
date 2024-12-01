@@ -1,7 +1,7 @@
 package d1p2
 
 import (
-	"advent-of-code-2025/core"
+	"advent-of-code-2024/core"
 	"testing"
 )
 

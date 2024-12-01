@@ -98,7 +98,7 @@ func createSolverTestFile(dayDir, day, part string) error {
 	content := fmt.Sprintf(`package d%sp%s
 
 import (
-    "advent-of-code-2025/core"
+    "advent-of-code-2024/core"
     "testing"
 )
 

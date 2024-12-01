@@ -1,7 +1,7 @@
 package core
 
 import (
-	"advent-of-code-2025/utils"
+	"advent-of-code-2024/utils"
 	"fmt"
 )
 
