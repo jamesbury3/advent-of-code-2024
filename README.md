@@ -2,6 +2,11 @@
 
 This repository contains solutions for the Advent of Code 2024 challenges. The project is structured to handle each day's challenge with a dedicated solver that implements the `Solver` interface. The `DaySolver` struct is responsible for reading the input file and calculating the answer using its `Solver` delegate.
 
+## Table of Contents
+- [Repository Layout](#repository-layout)
+- [Directory and File Descriptions](#directory-and-file-descriptions)
+- [Creating Files for a New Day](#creating-files-for-a-new-day)
+
 ### Repository Layout
 ```
 cmd/
