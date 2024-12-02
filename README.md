@@ -17,7 +17,9 @@ dayN/
         day_N_part_2_solver.go
         day_N_part_2_solver_test.go
         input.txt
+    day_N_utils.go
 go.mod
+runChallengeTests.sh
 utils/
     file_reader.go
 ```
@@ -29,7 +31,9 @@ utils/
 - **dayN/**: Contains the solutions and tests for Day N's challenges.
   - **p1/**: Contains the solver, test, and input file for Part 1 of Day N.
   - **p2/**: Contains the solver, test, and input file for Part 2 of Day N.
+  - **day_N_utils.go**: Contains utility functions relevant to both parts for a day
 - **go.mod**: The Go module file.
+- **runChallengeTests.sh**: Shell script to run unit tests for all days
 - **utils/**: Contains utility functions, including [`utils/file_reader.go`](utils/file_reader.go) for reading input files.
 
 ### `DaySolver` and `Solver` Interface
