@@ -11,7 +11,6 @@ type Day2Part1Solver struct{}
 
 func (solver *Day2Part1Solver) Solve(lines []string) (string, error) {
 
-	direction := 1
 	safeReports := 0
 	lineNums, err := day2utils.ConvertLinesToIntSlices(lines)
 	if err != nil {
@@ -20,17 +19,10 @@ func (solver *Day2Part1Solver) Solve(lines []string) (string, error) {
 	}
 
 	for _, line := range lineNums {
-
-		if line[1]-line[0] > 0 {
-			direction = 1
-		} else {
-			direction = -1
-		}
-
+		direction := getDirection(line)
 		if isReportSafe(line, direction) {
 			safeReports++
 		}
-
 	}
 
 	answer := strconv.Itoa(safeReports)
@@ -48,4 +40,27 @@ func isReportSafe(line []int, direction int) bool {
 		}
 	}
 	return true
+}
+
+func getDirection(line []int) int {
+	prev := line[0]
+	direction := 0
+	for i := 1; i < len(line); i++ {
+		if line[i] > prev {
+			direction++
+		} else if line[i] < prev {
+			direction--
+		}
+		prev = line[i]
+	}
+
+	if direction > 0 {
+		direction = 1
+	} else if direction < 0 {
+		direction = -1
+	} else {
+		direction = 0
+	}
+
+	return direction
 }
