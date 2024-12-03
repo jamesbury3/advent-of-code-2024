@@ -153,6 +153,48 @@ func Test_isReportSafeInAnyOrder(t *testing.T) {
 			want: true,
 		},
 		{
+			name: "Increasing with removal of last should pass",
+			args: args{
+				line: []int{1, 2, 5, 8, 10, 9},
+			},
+			want: true,
+		},
+		{
+			name: "Decreasing with removal of last should pass",
+			args: args{
+				line: []int{20, 18, 15, 13, 11, 15},
+			},
+			want: true,
+		},
+		{
+			name: "Increasing with removal of second to last should pass",
+			args: args{
+				line: []int{1, 2, 5, 8, -10, 11},
+			},
+			want: true,
+		},
+		{
+			name: "Decreasing with removal of second to last should pass",
+			args: args{
+				line: []int{13, 10, 8, 5, 49, 2},
+			},
+			want: true,
+		},
+		{
+			name: "Increasing with removal of second should pass",
+			args: args{
+				line: []int{1, -50, 3, 5, 8, 11},
+			},
+			want: true,
+		},
+		{
+			name: "Decreasing with removal of second should pass",
+			args: args{
+				line: []int{13, 50, 10, 8, 5, 3},
+			},
+			want: true,
+		},
+		{
 			name: "Increasing with 2 unsafe reports should fail",
 			args: args{
 				line: []int{59, 2, 5, -4, 10, 14},
@@ -165,6 +207,41 @@ func Test_isReportSafeInAnyOrder(t *testing.T) {
 				line: []int{14, 10, 8, 5, -2, 1},
 			},
 			want: false,
+		},
+		{
+			name: "Increasing with first two the same should pass",
+			args: args{
+				line: []int{5, 5, 6, 8, 10, 13},
+			},
+			want: true,
+		},
+		{
+			name: "Decreasing with first two the same should pass",
+			args: args{
+				line: []int{13, 10, 8, 6, 5, 5},
+			},
+			want: true,
+		},
+		{
+			name: "Increasing with last two the same should pass",
+			args: args{
+				line: []int{1, 2, 5, 8, 10, 10},
+			},
+			want: true,
+		},
+		{
+			name: "Decreasing with last two the same should pass",
+			args: args{
+				line: []int{13, 10, 8, 5, 2, 2},
+			},
+			want: true,
+		},
+		{
+			name: "Decreasing with removal of second and duplicate values should pass",
+			args: args{
+				line: []int{28, 25, 26, 25, 24},
+			},
+			want: true,
 		},
 	}
 	for _, tt := range tests {
