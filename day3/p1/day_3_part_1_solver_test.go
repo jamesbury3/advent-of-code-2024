@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestDay3Part1Solver_Solve(t *testing.T) {
+func TestDay3Part1Solver_Solve_InputExample(t *testing.T) {
 	type fields struct {
 		daySolverDelegate *Day3Part1Solver
 	}
@@ -17,7 +17,42 @@ func TestDay3Part1Solver_Solve(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "Solve Problem",
+			name: "should return correct answer for input example",
+			want: "161",
+			fields: fields{
+				daySolverDelegate: &Day3Part1Solver{},
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			solver := &core.DaySolver{
+				DaySolverDelegate: tt.fields.daySolverDelegate,
+			}
+			got, err := solver.CalculateAnswerFromInputExample()
+			if (err != nil) != tt.wantErr {
+				t.Errorf("Day3Part1Solver.Solve() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if got != tt.want {
+				t.Errorf("Day3Part1Solver.Solve() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestDay3Part1Solver_Solve_Input(t *testing.T) {
+	type fields struct {
+		daySolverDelegate *Day3Part1Solver
+	}
+	tests := []struct {
+		name    string
+		fields  fields
+		want    string
+		wantErr bool
+	}{
+		{
+			name: "should return correct answer for input",
 			want: "173785482",
 			fields: fields{
 				daySolverDelegate: &Day3Part1Solver{},
@@ -29,7 +64,7 @@ func TestDay3Part1Solver_Solve(t *testing.T) {
 			solver := &core.DaySolver{
 				DaySolverDelegate: tt.fields.daySolverDelegate,
 			}
-			got, err := solver.CalculateAnswer()
+			got, err := solver.CalculateAnswerFromInput()
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Day3Part1Solver.Solve() error = %v, wantErr %v", err, tt.wantErr)
 				return

@@ -33,6 +33,9 @@ func main() {
 
 	createInputFile(dayDir, "1")
 	createInputFile(dayDir, "2")
+
+	createInputExampleFile(dayDir, "1")
+	createInputExampleFile(dayDir, "2")
 }
 
 func createDirectory(dirPath string) error {
@@ -86,6 +89,17 @@ func createInputFile(dayDir, part string) error {
 	return nil
 }
 
+func createInputExampleFile(dayDir, part string) error {
+	filePath := filepath.Join(dayDir, "p"+part, "input-example.txt")
+	file, err := createFile(filePath)
+	if err != nil {
+		fmt.Println("Error creating input example file:", err)
+		return err
+	}
+	defer file.Close()
+	return nil
+}
+
 func createSolverTestFile(dayDir, day, part string) error {
 	filePath := filepath.Join(dayDir, "p"+part, "day_"+day+"_part_"+part+"_solver_test.go")
 	file, err := createFile(filePath)
@@ -102,7 +116,7 @@ import (
     "testing"
 )
 
-func TestDay%sPart%sSolver_Solve(t *testing.T) {
+func TestDay%sPart%sSolver_Solve_InputExample(t *testing.T) {
     type fields struct {
         daySolverDelegate *Day%sPart%sSolver
     }
@@ -113,7 +127,7 @@ func TestDay%sPart%sSolver_Solve(t *testing.T) {
         wantErr bool
     }{
         {
-            name: "Solve Problem",
+            name: "should return correct answer for input example",
             want: "PLACEHOLDER",
             fields: fields{
                 daySolverDelegate: &Day%sPart%sSolver{},
@@ -125,7 +139,7 @@ func TestDay%sPart%sSolver_Solve(t *testing.T) {
             solver := &core.DaySolver{
                 DaySolverDelegate: tt.fields.daySolverDelegate,
             }
-            got, err := solver.CalculateAnswer()
+            got, err := solver.CalculateAnswerFromInputExample()
             if (err != nil) != tt.wantErr {
                 t.Errorf("Day%sPart%sSolver.Solve() error = %%v, wantErr %%v", err, tt.wantErr)
                 return
@@ -136,7 +150,42 @@ func TestDay%sPart%sSolver_Solve(t *testing.T) {
         })
     }
 }
-`, day, part, day, part, day, part, day, part, day, part, day, part)
+
+func TestDay%sPart%sSolver_Solve_Input(t *testing.T) {
+    type fields struct {
+        daySolverDelegate *Day%sPart%sSolver
+    }
+    tests := []struct {
+        name    string
+        fields  fields
+        want    string
+        wantErr bool
+    }{
+        {
+            name: "should return correct answer for input",
+            want: "PLACEHOLDER",
+            fields: fields{
+                daySolverDelegate: &Day%sPart%sSolver{},
+            },
+        },
+    }
+    for _, tt := range tests {
+        t.Run(tt.name, func(t *testing.T) {
+            solver := &core.DaySolver{
+                DaySolverDelegate: tt.fields.daySolverDelegate,
+            }
+            got, err := solver.CalculateAnswerFromInput()
+            if (err != nil) != tt.wantErr {
+                t.Errorf("Day%sPart%sSolver.Solve() error = %%v, wantErr %%v", err, tt.wantErr)
+                return
+            }
+            if got != tt.want {
+                t.Errorf("Day%sPart%sSolver.Solve() = %%v, want %%v", got, tt.want)
+            }
+        })
+    }
+}
+`, day, part, day, part, day, part, day, part, day, part, day, part, day, part, day, part, day, part, day, part, day, part)
 	file.WriteString(content)
 	return nil
 }

@@ -7,7 +7,18 @@ import (
 	"path/filepath"
 )
 
-func ReadLines() ([]string, error) {
+func ReadLinesFromInputExample() ([]string, error) {
+	absPath, err := os.Getwd()
+	if err != nil {
+		fmt.Println("Error getting current directory:", err)
+		return []string{}, err
+	}
+
+	filePath := filepath.Join(absPath, "input-example.txt")
+	return readLines(filePath)
+}
+
+func ReadLinesFromInput() ([]string, error) {
 	absPath, err := os.Getwd()
 	if err != nil {
 		fmt.Println("Error getting current directory:", err)
@@ -15,6 +26,10 @@ func ReadLines() ([]string, error) {
 	}
 
 	filePath := filepath.Join(absPath, "input.txt")
+	return readLines(filePath)
+}
+
+func readLines(filePath string) ([]string, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
 		return nil, err
