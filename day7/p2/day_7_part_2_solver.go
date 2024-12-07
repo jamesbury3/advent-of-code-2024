@@ -61,12 +61,11 @@ func (solver *Day7Part2Solver) applyOperators(currIdx int, solution, target floa
 }
 
 func combineFloat64s(a, b float64) float64 {
-	numDigits := 1
-	temp := b
-	for temp >= 10 {
-		temp /= 10
+	var numDigits float64 = 1
+	for i := b; i >= 10; {
+		i /= 10
 		numDigits++
 	}
-	multiplier := math.Pow(10, float64(numDigits))
-	return ((a) * multiplier) + float64(b)
+	multiplier := math.Pow(10, numDigits)
+	return (a * multiplier) + b
 }
