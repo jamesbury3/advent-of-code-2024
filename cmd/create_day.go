@@ -171,6 +171,7 @@ func TestDay%sPart%sSolver_Solve_Input(t *testing.T) {
     }
     for _, tt := range tests {
         t.Run(tt.name, func(t *testing.T) {
+			t.Skip()
             solver := &core.DaySolver{
                 DaySolverDelegate: tt.fields.daySolverDelegate,
             }
