@@ -43,11 +43,7 @@ func (solver *Day7Part2Solver) Solve(lines []string) (string, error) {
 
 func (solver *Day7Part2Solver) applyOperators(currIdx int, solution, target float64, inputs []float64) bool {
 	if currIdx == len(inputs) {
-		if solution == target {
-			return true
-		} else {
-			return false
-		}
+		return solution == target
 	}
 	curr := inputs[currIdx]
 	if solver.applyOperators(currIdx+1, solution+curr, target, inputs) {
