@@ -40,6 +40,7 @@ func (solver *Day8Part1Solver) Solve(lines []string) (string, error) {
 				}
 				xDist := otherLocation[0] - location[0]
 				yDist := otherLocation[1] - location[1]
+
 				destinationRow := location[0] + (2 * xDist)
 				destinationCol := location[1] + (2 * yDist)
 
