@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strconv"
 )
 
 func main() {
@@ -22,20 +23,14 @@ func main() {
 	dayDir := filepath.Join(wd, "day"+day)
 
 	createDirectory(dayDir)
-	createDirectory(filepath.Join(dayDir, "p1"))
-	createDirectory(filepath.Join(dayDir, "p2"))
 
-	createSolverFile(dayDir, day, "1")
-	createSolverFile(dayDir, day, "2")
-
-	createSolverTestFile(dayDir, day, "1")
-	createSolverTestFile(dayDir, day, "2")
-
-	createInputFile(dayDir, "1")
-	createInputFile(dayDir, "2")
-
-	createInputExampleFile(dayDir, "1")
-	createInputExampleFile(dayDir, "2")
+	for i := 1; i <= 2; i++ {
+		createDirectory(filepath.Join(dayDir, fmt.Sprintf("p%d", i)))
+		createSolverFile(dayDir, day, strconv.Itoa(i))
+		createSolverTestFile(dayDir, day, strconv.Itoa(i))
+		createInputFile(dayDir, strconv.Itoa(i))
+		createInputExampleFile(dayDir, strconv.Itoa(i))
+	}
 }
 
 func createDirectory(dirPath string) error {
